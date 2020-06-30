@@ -14,5 +14,6 @@ def load_dataset(dataset_name):
 
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
     testloader = torch.utils.data.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
-    return trainloader, testloader
+    classes = ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+    return trainloader, testloader, classes
 
