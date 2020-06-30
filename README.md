@@ -10,21 +10,19 @@
 ### Requirements
 * Python 3.6.10  
 * Numpy 1.18.4  
-* Tensorboard 2.0.0  
-* Tensorflow 2.0.0  
+* Tensorboard 2.0.0   
 * Pytorch 1.5.0  
 * Torchvision 0.6.0  
 
 
 ### Results
 * CIFAR10 : command with parameters(dataset, model)
-![Train Loss](images/train_loss.png "Train Loss")          
+![Train Loss](https://github.com/Arushi04/ImageClassification/blob/master/images/training_loss.png "Train Loss")          
 
-![Train Accuracy](images/train_accuracy.png "Train Accuracy")
+![Train Accuracy](https://github.com/Arushi04/ImageClassification/blob/master/images/training_accuracy.png "Train Accuracy")
 
-![Test Loss](images/test_loss.png "Test Loss")
+![Test Loss](https://github.com/Arushi04/ImageClassification/blob/master/images/testing_loss.png "Test Loss")
 
-![Test Accuracy](images/test_accuracy.png "Test Accuracy")
+![Test Accuracy](https://github.com/Arushi04/ImageClassification/blob/master/images/test_accuracy.png "Test Accuracy")
 
-confusion matrix
 
