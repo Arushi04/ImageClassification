@@ -25,9 +25,9 @@ Command to run : python main.py --dataset CIFAR10 --outdir output/ --epochlen 10
 
 ![Test Loss](https://github.com/Arushi04/ImageClassification/blob/master/images/test_loss.png "Test Loss")       
 
-![Train Accuracy](https://github.com/Arushi04/ImageClassification/blob/master/images/train-test-accuracy.png "Train/Test Accuracy")
-Train : Orange
-Test : Blue
+![Train Accuracy](https://github.com/Arushi04/ImageClassification/blob/master/images/train-test-accuracy.png "Train/Test Accuracy").      
+Train : Orange.       
+Test : Blue.       
 
 ![Confusion Matrix](https://github.com/Arushi04/ImageClassification/blob/master/images/confusion_matrix.png "Confusion Matrix")
 
