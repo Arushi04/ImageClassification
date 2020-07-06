@@ -12,17 +12,25 @@
 * Numpy 1.18.4  
 * Tensorboard 2.0.0   
 * Pytorch 1.5.0  
-* Torchvision 0.6.0  
+* Torchvision 0.6.0 
+* Matplotlib 3.2.1
+* Scikit-learn 0.23.1
 
 
 ### Results
-* CIFAR10 : command with parameters(dataset, model)
-![Train Loss](https://github.com/Arushi04/ImageClassification/blob/master/images/training_loss.png "Train Loss")          
+* CIFAR10 :
 
-![Train Accuracy](https://github.com/Arushi04/ImageClassification/blob/master/images/training_accuracy.png "Train Accuracy")
+Command to run : python main.py --dataset CIFAR10 --outdir output/ --epochlen 10
+![Train Loss](https://github.com/Arushi04/ImageClassification/blob/master/images/train_loss.png "Train Loss")   
 
-![Test Loss](https://github.com/Arushi04/ImageClassification/blob/master/images/testing_loss.png "Test Loss")
+![Test Loss](https://github.com/Arushi04/ImageClassification/blob/master/images/test_loss.png "Test Loss")       
 
-![Test Accuracy](https://github.com/Arushi04/ImageClassification/blob/master/images/test_accuracy.png "Test Accuracy")
+![Train Accuracy](https://github.com/Arushi04/ImageClassification/blob/master/images/train-test-accuracy.png "Train/Test Accuracy")
+Train : Orange
+Test : Blue
+
+![Confusion Matrix](https://github.com/Arushi04/ImageClassification/blob/master/images/confusion_matrix.png "Confusion Matrix")
+
+
 
 

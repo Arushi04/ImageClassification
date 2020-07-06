@@ -4,10 +4,11 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.tensorboard import SummaryWriter
 import os
-from sklearn.metrics import multilabel_confusion_matrix, classification_report
-import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix, accuracy_score, classification_report, ConfusionMatrixDisplay
 from dataset import load_dataset
 from models import Net
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 def check_class_performance(net, classes, testloader):
@@ -64,22 +65,8 @@ def main(args):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
-    writer = SummaryWriter(log_dir=os.path.join(args.outdir, "tb/"), purge_step=0)
-
-    # Plot confusion matrix
-    title = ("Confusion matrix", None)
-    X_test = []
-    Y_test = []
-    for data in testloader:
-        images, labels = data
-        outputs = net(images)
-        _, predicted = torch.max(outputs.data, 1)
-        y_true = labels.numpy()
-        y_pred = predicted.numpy()
-
-    cm = multilabel_confusion_matrix(y_true, y_pred)
-    print(cm)
-    print(classification_report(y_true, y_pred))
+    writer_train = SummaryWriter(log_dir=os.path.join(args.outdir, "train/"), purge_step=0)
+    writer_test = SummaryWriter(log_dir=os.path.join(args.outdir, "test/"), purge_step=0)
 
     correct = 0
     total = 0
@@ -103,7 +90,7 @@ def main(args):
             running_loss += loss.item()
             if iter % 2000 == 1999:    # print every 2000 mini-batches
                 print('[%d, %5d] loss: %.3f' % (epoch + 1, iter, running_loss / 2000))
-                writer.add_scalar('Training Loss', running_loss, iter)
+                writer_train.add_scalar('Training Loss', running_loss, iter)
                 running_loss = 0.0
             iter += 1
 
@@ -111,15 +98,32 @@ def main(args):
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
         train_accuracy = (100 * correct) / total
-        writer.add_scalar('Train Accuracy', train_accuracy, epoch+1)
+        writer_train.add_scalar('Accuracy', train_accuracy, epoch+1)
 
         test_loss, test_accuracy = test_data(net, classes, testloader, criterion)
         print(f"Accuracy of the network on the 10000 test images for epoch {epoch+1} is {test_accuracy}")
-        writer.add_scalar('Testing Loss', test_loss, epoch+1)
-        writer.add_scalar('Test Accuracy', test_accuracy, epoch+1)
+        writer_test.add_scalar('Testing Loss', test_loss, epoch+1)
+        writer_test.add_scalar('Accuracy', test_accuracy, epoch+1)
     check_class_performance(net, classes, testloader)
 
+    # Plot confusion matrix
+    y_true = []
+    y_pred = []
+    for data in testloader:
+        images, labels = data
+        outputs = net(images)
+        _, predicted = torch.max(outputs.data, 1)
+        y_true += labels.tolist()
+        y_pred += predicted.tolist()
 
+    cm = confusion_matrix(np.array(y_true), np.array(y_pred))
+    print(cm)
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=classes)
+    disp.plot(include_values=True, cmap='viridis', ax=None, xticks_rotation='horizontal', values_format=None)
+
+    print("Accuracy score : ", accuracy_score(y_true, y_pred))
+    print("classification report : ", classification_report(y_true, y_pred))
+    plt.show()
     print('Finished Training')
 
 
@@ -128,6 +132,6 @@ if __name__ == '__main__':
     parser.add_argument("--seed", type=int, default=3, help="")
     parser.add_argument("--dataset", type=str, default="CIFAR10", help="")
     parser.add_argument("--outdir", type=str, default="./output/", help="")
-    parser.add_argument("--epochlen", type=int, default=1, help="")
+    parser.add_argument("--epochlen", type=int, default=10, help="")
     args = parser.parse_args()
     main(args)
