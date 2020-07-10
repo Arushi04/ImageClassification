@@ -23,7 +23,7 @@
 Command to run : python main.py --dataset CIFAR10 --outdir output/ --epochlen 10
 ![Train Loss](https://github.com/Arushi04/ImageClassification/blob/master/images/train_loss.png {:height="50%" width="50%"})
 
-<img src="https://github.com/Arushi04/ImageClassification/blob/master/images/train_loss.png" width="450" height="350">
+<img src="https://github.com/Arushi04/ImageClassification/blob/master/images/train_loss.png" width="450" height="300">
 
 ![Test Loss](https://github.com/Arushi04/ImageClassification/blob/master/images/test_loss.png "Test Loss")       
 
