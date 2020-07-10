@@ -25,8 +25,9 @@ Command to run : python main.py --dataset CIFAR10 --outdir output/ --epochlen 10
 <img src="https://github.com/Arushi04/ImageClassification/blob/master/images/train_loss.png" width="450" height="300">
 <img src="https://github.com/Arushi04/ImageClassification/blob/master/images/test_loss.png" width="450" height="300">
 <img src="https://github.com/Arushi04/ImageClassification/blob/master/images/train-test-accuracy.png" width="450" height="300">
-Train : Orange.       
-Test : Blue. 
+Train : Orange.              
+Test : Blue.        
+
 <img src="https://github.com/Arushi04/ImageClassification/blob/master/images/confusion_matrix.png" width="450" height="300">
        
 
