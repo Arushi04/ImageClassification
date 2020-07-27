@@ -8,6 +8,7 @@ def load_dataset(dataset_name):
                                    transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))])
 
     if dataset_name == 'CIFAR10':
+        #The images in CIFAR-10 are of size 3x32x32
         trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
         testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform)
         classes = ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
