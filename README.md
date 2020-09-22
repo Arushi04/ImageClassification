@@ -6,11 +6,19 @@
 Image classification is the process of labeling images according to predefined categories. An image classification model is fed a set of 
 images within a specific category. Based on this set, the algorithm learns which class the test images belong to, and can then predict the
 correct class of future image inputs, and can even measure how accurate the predictions are. In this project, we have trained our model 
-using Convolutional Neural Network.
+using Convolutional Neural Network on CIFAR10 dataset.
 
-### List of Datasets
-* CIFAR10
-* MNIST (coming up)
+### Dataset:
+CIFAR10 dataset has been loaded from PyTorch. This dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. The dataset is divided into five training batches and one test batch, each with 10000 images. The test batch contains exactly 1000 randomly-selected images from each class. The training batches contain the remaining images in random order, but some training batches may contain more images from one class than another. Between them, the training batches contain exactly 5000 images from each class. 
+
+
+### Steps:
+The project is broken down into 4 files:
+1. **dataset.py :** Loading and pre-processing the dataset using Data Loader
+2. **models.py :** Defining the layers of the CNN network classifier 
+3. **main.py :** Training the training dataset using the defined model and predicting classes for test images. Visualizing traing and test loss and accuracy on test datasets
+4. **utils.py :** Additional functions are defined for plotting images.
+
 
 ### Architecture
 * Convolution Neural Network
@@ -24,11 +32,14 @@ using Convolutional Neural Network.
 * Matplotlib 3.2.1
 * Scikit-learn 0.23.1
 
+### Command to Run:
 
-### Results
+python main.py --dataset CIFAR10 --outdir output/ --epochlen 10
+
+
+### Results and Visualization
 * CIFAR10 :
 
-Command to run : python main.py --dataset CIFAR10 --outdir output/ --epochlen 10
 
 <img src="https://github.com/Arushi04/ImageClassification/blob/master/images/train_loss.png" width="450" height="300">
 <img src="https://github.com/Arushi04/ImageClassification/blob/master/images/test_loss.png" width="450" height="300">
