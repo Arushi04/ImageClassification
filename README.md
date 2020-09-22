@@ -1,4 +1,8 @@
 # Image Classification using Pytorch
+
+<img src="https://github.com/Arushi04/ImageClassification/blob/master/images/cifar.png" width="800" height="300">
+
+### Description :
 Image classification is the process of labeling images according to predefined categories. An image classification model is fed a set of 
 images within a specific category. Based on this set, the algorithm learns which class the test images belong to, and can then predict the
 correct class of future image inputs, and can even measure how accurate the predictions are. In this project, we have trained our model 
