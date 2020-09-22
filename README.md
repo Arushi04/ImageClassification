@@ -1,4 +1,4 @@
-# Image Classification using Pytorch
+# Image Classification using Pytorch on CIFAR10
 
 <img src="https://github.com/Arushi04/ImageClassification/blob/master/images/cifar.png" width="800" height="300">
 
@@ -12,7 +12,7 @@ using Convolutional Neural Network on CIFAR10 dataset.
 CIFAR10 dataset has been loaded from PyTorch. This dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. The dataset is divided into five training batches and one test batch, each with 10000 images. The test batch contains exactly 1000 randomly-selected images from each class. The training batches contain the remaining images in random order, but some training batches may contain more images from one class than another. Between them, the training batches contain exactly 5000 images from each class. 
 
 
-### Steps:
+### Relevant Files:
 The project is broken down into 4 files:
 1. **dataset.py :** Loading and pre-processing the dataset using Data Loader
 2. **models.py :** Defining the layers of the CNN network classifier 
